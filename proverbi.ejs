@@ -1,0 +1,66 @@
+<html>
+
+<head>
+    <!--<script src="sqlite_dal.js"></script>-->
+    <link href="style.css" rel="stylesheet">
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+        $.get($(location).attr('href').split('?')[0], {
+            thispage: $(location).attr('href').split('?')[1].split('=')[1].split('&')[0], //val1
+            start: $(location).attr('href').split('?')[1].split('=')[1].split('&')[1].split('=')[1].split('&')[0], //val2
+            end: $(location).attr('href').split('?')[1].split('=')[1].split('&')[1].split('=')[1].split('&')[1].split('=')[1]
+                //url?campo1
+                //=val1
+                //&campo2=val2&campo3=val3
+                //
+        }, function(data) {
+
+            $("button").click(function(event) {
+                Table('<%= vinti_proverbi %>', data.start, data.end, data.thispage);
+            })
+        });
+    </script>
+</head>
+
+<body onload="FlagsOk()">
+    <h1>I proverbi che hai imparato.</h1>
+    <div class="navigation">
+        <a href="index.ejs">Home</a>
+        <a href="aboutus.ejs"> Chi siamo? </a>
+        <a href="proverbi.ejs?thispage=1&start=0&end=10"> Visualizza Proverbi Vinti </a>
+    </div>
+
+    <div class="leftcolumn">
+        <p>
+            Stai visitando il sito come:
+        </p>
+        <p style="padding-bottom: 75%;">
+            <%= username %>
+        </p>
+        </br>
+    </div>
+    <div class="content">
+        <!--onclick="Table('ejs vinti_proverbi')">-->
+        <button> Visualizza Proverbi vinti</button>
+    </div>
+    <div class="rightcolumn">
+        <p>
+            Contattaci
+        </p>
+        <p>
+            Mail: pippo.marrese@gmail.com Telefono: +39 123 434 3779
+        </p>
+        <p style="padding-bottom: 85%;">
+            Ci Trovi a: Via dei matti n.0, Domodossola (la citt&agrave; della D).
+        </p>
+    </div>
+    <div style="clear: both;"></div>
+    <div class="footer">
+
+        &copy; Copyright 2021
+
+    </div>
+</body>
+
+</html>
