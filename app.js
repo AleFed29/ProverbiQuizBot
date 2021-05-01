@@ -8,7 +8,7 @@ const bot = new TelegramBot(TOKEN, {
 });
 const PORT = process.env.PORT || 3000;
 const HOST = process.env.HOST || 'localhost';
-const link = "https://google.com/";
+const link = "https://proverbiquizbot.herokuapp.com/";
 var phase = -1;
 var passcont = 0;
 var username = null;
