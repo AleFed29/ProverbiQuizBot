@@ -91,7 +91,7 @@ const Proverbis_piu_id = (id) => {
 const ProverbisANDIds = (id) => {
     let provs = Proverbis(id);
     let provsId = Operation("SELECT IDProverbio FROM Proverbi WHERE IDProverbio in (SELECT FK_Proverbio FROM Appartenenza WHERE FK_Utente = ?)", [id]);
-    return { "ID": provs, "Testo": provsId };
+    return { "ID": provsId, "Testo": provs };
 };
 const RandQuest_and_Answers = () => {
     let id = Math.floor(Math.random() * QuestionLength() - 1) + 1;

@@ -100,8 +100,8 @@
                 head.appendChild(td_id);
                 head.appendChild(td_Testo);
                 table.appendChild(head);
-                let ids = records['ID'];
-                let text = records['Testo'];
+                let ids = records.ID;
+                let text = records.Testo;
                 for (let i = 0; i < ids.length; i++) {
                     if (i >= start && i <= end) {
                         let row = document.createElement("tr");
