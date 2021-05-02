@@ -96,11 +96,26 @@
                 td_id.appendChild(document.createTextNode("Proverbio n."));
                 let td_Testo = document.createElement("th");
                 td_Testo.appendChild(document.createTextNode("Testo"));
-
                 head.appendChild(td_id);
                 head.appendChild(td_Testo);
                 table.appendChild(head);
-                records.forEach(record => {
+                let ids = records['ID'];
+                let text = records['Testo'];
+                for (let i = 0; i < ids.length; i++) {
+                    if (i >= start && i <= end) {
+                        let row = document.createElement("tr");
+                        let td1 = document.createElement("td");
+                        td1.innerHTML = ids[i].IDProverbio;
+                        let td2 = document.createElement("td");
+                        td2.innerHTML = text[i].Testo;
+                        row.appendChild(td1);
+                        row.appendChild(td2);
+                        table.appendChild(tr);
+                    }
+                }
+
+
+                /*records.forEach(record => {
                     if (records.indexOf(record) >= start && records.indexOf(record) <= end) {
                         let row = document.createElement("tr");
                         let td1 = document.createElement("td");
@@ -111,7 +126,8 @@
                         row.appendChild(td2);
                         table.appendChild(tr);
                     }
-                });
+                });*/
+
                 let p = document.createElement("p");
                 let a1 = document.createElement("a");
                 let a2 = document.createElement("a");
@@ -154,9 +170,6 @@
     </div>
 
     <div class="leftcolumn">
-        <p>
-            <%=vinti_proverbi[0]%>
-        </p>
         <p>
             Stai visitando il sito come:
         </p>
