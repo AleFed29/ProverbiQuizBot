@@ -2,7 +2,6 @@ function Table(records, start, end, thispage) {
     if (records.length > 0) {
         let table = document.createElement("table");
         let head = document.createElement("tr");
-
         let td_id = document.createElement("th");
         td_id.appendChild(document.createTextNode("Proverbio n."));
         let td_Testo = document.createElement("th");
@@ -15,9 +14,9 @@ function Table(records, start, end, thispage) {
             if (records.indexOf(record) >= start && records.indexOf(record) <= end) {
                 let row = document.createElement("tr");
                 let td1 = document.createElement("td");
-                td1.innerHTML = record[0];
+                td1.innerHTML = record["IDProverbio"];
                 let td2 = document.createElement("td");
-                td2.innerHTML = record[1];
+                td2.innerHTML = record["Testo"];
                 row.appendChild(td1);
                 row.appendChild(td2);
                 table.appendChild(tr);
