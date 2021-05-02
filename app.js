@@ -189,10 +189,12 @@ app.get("/", function(req, res) {
         "username": username
     });
 });
+var Proves = Proverbis_piu_id(username);
+console.log(Proves);
 app.get("/proverbi", function(req, res) {
     res.render("proverbi", {
         "username": username,
-        "vinti_proverbi": Proverbis_piu_id(username),
+        "vinti_proverbi": Proves,
         "start": 0,
         "end": 10,
         "thispage": 1
