@@ -9,6 +9,6 @@
     },
     "scripts": {
         "app": "nodemon app.js",
-        "start": "npm run app"
+        "start": "node app.js"
     }
 }
