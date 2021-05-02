@@ -7,7 +7,7 @@ const bot = new TelegramBot(TOKEN, {
     polling: true
 });
 const PORT = process.env.PORT || 3000;
-const HOST = process.env.HOST || 'localhost';
+//const HOST = process.env.HOST || 'localhost';
 const link = "https://proverbiquizbot.herokuapp.com/";
 var phase = -1;
 var passcont = 0;
@@ -178,7 +178,8 @@ function SQLite_close() {
 }
 //#endregion
 
-app.listen(PORT, HOST, function() {
+//HOST,
+app.listen(PORT, function() {
     console.log("Server attivo nella porta " + PORT);
 });
 
