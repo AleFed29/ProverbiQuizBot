@@ -190,7 +190,6 @@ app.get("/", function(req, res) {
     });
 });
 var Proves = Proverbis_piu_id(username);
-console.log(Proves);
 app.get("/proverbi", function(req, res) {
     res.render("proverbi", {
         "username": username,
@@ -446,6 +445,8 @@ bot.on('message', (msg) => {
             phase = -1;
             break;
         case 7: //logout
+            let Proves2 = Proverbis_piu_id(username);
+            console.log(Proves2);
             break; //logout e stats non hanno bisogno di messaggi
         default:
             break;
