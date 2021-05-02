@@ -181,20 +181,20 @@ function SQLite_close() {
 app.listen(PORT, HOST, function() {
     console.log("Server attivo nella porta " + PORT);
 });
-//const ejs = express('ejs');
+
 app.set("view engine", "ejs");
 app.get("/", function(req, res) {
     res.render("index", {
         "username": username
     });
 });
-app.get("/", function(req, res) {
+app.get("/proverbi", function(req, res) {
     res.render("proverbi", {
         "username": username,
         "vinti_proverbi": Proverbis_piu_id(username)
     });
 });
-app.get("/", function(req, res) {
+app.get("/aboutus", function(req, res) {
     res.render("aboutus", {
         "username": username
     });
