@@ -5,6 +5,145 @@
     <link href="style.css" rel="stylesheet">
     <script src="script.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+        
+        .navigation a {
+            background-color: green;
+            color: white;
+        }
+        
+        .navigation a:hover {
+            background-color: lightgreen;
+            color: white;
+        }
+        
+        .navigation {
+            background-color: red;
+        }
+        
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+        
+        tr:nth-child(odd) {
+            background-color: lightgreen;
+        }
+        
+        .leftcolumn {
+            float: left;
+            width: 30%;
+            color: white;
+            border-right: 4px solid green;
+            background-color: green;
+        }
+        
+        .rightcolumn {
+            float: left;
+            width: 22.5%;
+            color: white;
+            border-left: 4px solid red;
+            background-color: red;
+        }
+        
+        .content {
+            float: left;
+            width: 45%;
+            background-color: white;
+        }
+        
+        .footer {
+            float: unset;
+            text-align: center;
+            width: 98%;
+            align-content: center;
+            border-top: 5px solid red;
+            border-top-color: red;
+            border-color: red;
+        }
+        
+        @media screen and (max-width: 1000px) {
+            .leftcolumn,
+            .content,
+            .rightcolumn,
+            .navigation a,
+            .footer {
+                width: 100%;
+            }
+        }
+    </style>
+    <script>
+        function Table(records, start, end, thispage) {
+            if (records.length > 0) {
+                let table = document.createElement("table");
+                let head = document.createElement("tr");
+
+                let td_id = document.createElement("th");
+                td_id.appendChild(document.createTextNode("Proverbio n."));
+                let td_Testo = document.createElement("th");
+                td_Testo.appendChild(document.createTextNode("Testo"));
+
+                head.appendChild(td_id);
+                head.appendChild(td_Testo);
+                table.appendChild(head);
+                records.forEach(record => {
+                    if (records.indexOf(record) >= start && records.indexOf(record) <= end) {
+                        let row = document.createElement("tr");
+                        let td1 = document.createElement("td");
+                        td1.innerHTML = record[0];
+                        let td2 = document.createElement("td");
+                        td2.innerHTML = record[1];
+                        row.appendChild(td1);
+                        row.appendChild(td2);
+                        table.appendChild(tr);
+                    }
+                });
+                let p = document.createElement("p");
+                let a1 = document.createElement("a");
+                let a2 = document.createElement("a");
+                let a_middle = document.createElement("a");
+                let a3 = document.createElement("a");
+                let a4 = document.createElement("a");
+                a1.innerHTML = "<<";
+                a1.href = "?thispage=1" + "&start=" + start + "&end=" + end;
+                a2.innerHTML = "<";
+                a2.href = "?thispage=" + (thispage > 1 ? (thispage - 1) : thispage) + "&start=" + start + "&end=" + end;
+                a_middle.innerHTML = thispage.toString();
+                a3.innerHTML = ">";
+                a3.href = "?thispage=" + (thispage < parseInt(records.length / (end - start)) ? thispage + 1 : parseInt(records.length / (end - start))) + "&start=" + start + "&end=" + end;
+                a4.innerHTML = ">>";
+                a4.href = "?thispage=" + parseInt(records.length / (end - start)) + "&start=" + start + "&end=" + end;
+                p.appendChild(a1);
+                p.appendChild(a2);
+                p.appendChild(a3);
+                p.appendChild(a4);
+                document.getElementsByClassName("content")[0].appendChild(table);
+                document.getElementsByClassName("content")[0].appendChild(p);
+            }
+        }
+
+        function FlagsOk() {
+            let br = document.createElement("br");
+            let contents = document.getElementsByClassName("content");
+            for (let i = 0; i < contents.length; i++)
+                contents.item(i).appendChild(br);
+        }
+    </script>
     <script type="text/javascript">
         $.get($(location).attr('href').split('?')[0], {
             thispage: $(location).attr('href').split('?')[1].split('=')[1].split('&')[0], //val1
