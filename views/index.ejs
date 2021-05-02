@@ -6,6 +6,88 @@
     <script src="script.js"></script>
     <title> Sito Proverbi Quiz </title>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+        
+        .navigation a {
+            background-color: green;
+            color: white;
+        }
+        
+        .navigation a:hover {
+            background-color: lightgreen;
+            color: white;
+        }
+        
+        .navigation {
+            background-color: red;
+        }
+        
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+        
+        tr:nth-child(odd) {
+            background-color: lightgreen;
+        }
+        
+        .leftcolumn {
+            float: left;
+            width: 30%;
+            color: white;
+            border-right: 4px solid green;
+            background-color: green;
+        }
+        
+        .rightcolumn {
+            float: left;
+            width: 22.5%;
+            color: white;
+            border-left: 4px solid red;
+            background-color: red;
+        }
+        
+        .content {
+            float: left;
+            width: 45%;
+            background-color: white;
+        }
+        
+        .footer {
+            float: unset;
+            text-align: center;
+            width: 98%;
+            align-content: center;
+            border-top: 5px solid red;
+            border-top-color: red;
+            border-color: red;
+        }
+        
+        @media screen and (max-width: 1000px) {
+            .leftcolumn,
+            .content,
+            .rightcolumn,
+            .navigation a,
+            .footer {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 
 <body onload="FlagsOk()">
