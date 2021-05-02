@@ -9,6 +9,8 @@
     },
     "scripts": {
         "app": "nodemon app.js",
-        "start": "node app.js"
+        "start": "node app.js",
+        "build": "npm i -dev && webpack --mode production",
+        "heroku-postbuild": "npm build"
     }
 }
