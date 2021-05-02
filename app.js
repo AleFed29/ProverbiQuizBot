@@ -194,11 +194,10 @@ app.get("/", function(req, res) {
         "username": username
     });
 });
-var Proves = ProverbisANDIds(IdByUser(username));
 app.get("/proverbi", function(req, res) {
     res.render("proverbi", {
         "username": username,
-        "vinti_proverbi": Proves,
+        "vinti_proverbi": ProverbisANDIds(IdByUser(username)),
         "start": 0,
         "end": 10,
         "thispage": 1
