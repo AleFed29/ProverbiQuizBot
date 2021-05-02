@@ -100,8 +100,8 @@
                 head.appendChild(td_id);
                 head.appendChild(td_Testo);
                 table.appendChild(head);
-                let ids = records['ID'];
-                let text = records['Testo'];
+                let ids = records.ID;
+                let text = records.Testo;
                 for (let i = 0; i < ids.length; i++) {
                     if (i >= start && i <= end) {
                         let row = document.createElement("tr");
@@ -169,7 +169,7 @@
     <div class="navigation">
         <a href="/">Home</a>
         <a href="./aboutus"> Chi siamo? </a>
-        <a href="./proverbi?thispage=1&start=0&end=10"> Visualizza Proverbi Vinti </a>
+        <a href="./proverbi"> Visualizza Proverbi Vinti </a>
     </div>
     <div class="leftcolumn">
         <p>
