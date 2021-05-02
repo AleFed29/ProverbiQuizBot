@@ -192,7 +192,10 @@ app.get("/", function(req, res) {
 app.get("/proverbi", function(req, res) {
     res.render("proverbi", {
         "username": username,
-        "vinti_proverbi": Proverbis_piu_id(username)
+        "vinti_proverbi": Proverbis_piu_id(username),
+        "start": 0,
+        "end": 10,
+        "thispage": 1
     });
 });
 app.get("/aboutus", function(req, res) {

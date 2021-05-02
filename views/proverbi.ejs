@@ -144,22 +144,6 @@
                 contents.item(i).appendChild(br);
         }
     </script>
-    <script type="text/javascript">
-        $.get($(location).attr('href').split('?')[0], {
-            thispage: $(location).attr('href').split('?')[1].split('=')[1].split('&')[0], //val1
-            start: $(location).attr('href').split('?')[1].split('=')[1].split('&')[1].split('=')[1].split('&')[0], //val2
-            end: $(location).attr('href').split('?')[1].split('=')[1].split('&')[1].split('=')[1].split('&')[1].split('=')[1]
-                //url?campo1
-                //=val1
-                //&campo2=val2&campo3=val3
-                //
-        }, function(data) {
-
-            $("button").click(function(event) {
-                Table('<%= vinti_proverbi %>', data.start, data.end, data.thispage);
-            })
-        });
-    </script>
 </head>
 
 <body onload="FlagsOk()">
@@ -167,7 +151,7 @@
     <div class="navigation">
         <a href="/">Home</a>
         <a href="./aboutus"> Chi siamo? </a>
-        <a href="./proverbi?thispage=1&start=0&end=10"> Visualizza Proverbi Vinti </a>
+        <a href="./proverbi"> Visualizza Proverbi Vinti </a>
     </div>
 
     <div class="leftcolumn">
@@ -181,7 +165,7 @@
     </div>
     <div class="content">
         <!--onclick="Table('ejs vinti_proverbi')">-->
-        <button> Visualizza Proverbi vinti</button>
+        <button onclick="Table('<%=vinti_proverbi%>', '<%=start%>', '<%=end%>', '<%=thispage%>')"> Visualizza Proverbi vinti</button>
     </div>
     <div class="rightcolumn">
         <p>
